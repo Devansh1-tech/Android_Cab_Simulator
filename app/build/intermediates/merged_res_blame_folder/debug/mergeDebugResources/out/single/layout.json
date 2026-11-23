@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-mergeDebugResources-32:\\layout\\activity_cab_list.xml",
+        "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\activity_cab_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-mergeDebugResources-32:\\layout\\item_trip.xml",
+        "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\item_trip.xml"
+    },
+    {
+        "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-mergeDebugResources-32:\\layout\\activity_history.xml",
+        "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\activity_history.xml"
+    },
+    {
+        "merged": "com.pickop.app-mergeDebugResources-32:/layout/activity_main.xml",
+        "source": "com.pickop.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-mergeDebugResources-32:\\layout\\activity_ride.xml",
+        "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\activity_ride.xml"
+    },
+    {
+        "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-mergeDebugResources-32:\\layout\\activity_booking.xml",
+        "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\activity_booking.xml"
+    },
+    {
+        "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-mergeDebugResources-32:\\layout\\item_cab.xml",
+        "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\item_cab.xml"
+    },
+    {
+        "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-mergeDebugResources-32:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\activity_main.xml"
+    }
+]

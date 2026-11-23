@@ -1,0 +1,109 @@
+package com.pickop.app.db
+
+import android.content.ContentValues
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
+import com.pickop.app.model.Booking
+
+class BookingDbHelper(context: Context) :
+    SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
+
+    companion object {
+        private const val DB_NAME = "pickop.db"
+        private const val DB_VERSION = 1
+        private const val TABLE = "bookings"
+    }
+
+    override fun onCreate(db: SQLiteDatabase) {
+        db.execSQL("""
+            CREATE TABLE $TABLE (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                pickup TEXT NOT NULL,
+                dropoff TEXT NOT NULL,
+                cab_type TEXT NOT NULL,
+                driver_name TEXT NOT NULL,
+                vehicle_number TEXT NOT NULL,
+                fare REAL NOT NULL,
+                distance_km REAL NOT NULL,
+                otp TEXT NOT NULL,
+                status TEXT NOT NULL,
+                created_at INTEGER NOT NULL
+            )
+        """.trimIndent())
+    }
+
+    override fun onUpgrade(db: SQLiteDatabase, old: Int, new: Int) {
+        db.execSQL("DROP TABLE IF EXISTS $TABLE")
+        onCreate(db)
+    }
+
+    // ── Insert ──
+
+    fun insertBooking(booking: Booking): Long {
+        val cv = ContentValues().apply {
+            put("pickup", booking.pickup)
+            put("dropoff", booking.dropoff)
+            put("cab_type", booking.cabType)
+            put("driver_name", booking.driverName)
+            put("vehicle_number", booking.vehicleNumber)
+            put("fare", booking.fare)
+            put("distance_km", booking.distanceKm)
+            put("otp", booking.otp)
+            put("status", booking.status)
+            put("created_at", booking.createdAt)
+        }
+        return writableDatabase.insert(TABLE, null, cv)
+    }
+
+    // ── Update status ──
+
+    fun updateStatus(id: Long, status: String) {
+        val cv = ContentValues().apply { put("status", status) }
+        writableDatabase.update(TABLE, cv, "id = ?", arrayOf(id.toString()))
+    }
+
+    // ── Get one ──
+
+    fun getBooking(id: Long): Booking? {
+        val cursor = readableDatabase.query(
+            TABLE, null, "id = ?", arrayOf(id.toString()),
+            null, null, null
+        )
+        return cursor.use {
+            if (it.moveToFirst()) cursorToBooking(it) else null
+        }
+    }
+
+    // ── Get all (newest first) ──
+
+    fun getAllBookings(): List<Booking> {
+        val list = mutableListOf<Booking>()
+        val cursor = readableDatabase.query(
+            TABLE, null, null, null,
+            null, null, "created_at DESC"
+        )
+        cursor.use {
+            while (it.moveToNext()) {
+                list.add(cursorToBooking(it))
+            }
+        }
+        return list
+    }
+
+    private fun cursorToBooking(c: android.database.Cursor): Booking {
+        return Booking(
+            id = c.getLong(c.getColumnIndexOrThrow("id")),
+            pickup = c.getString(c.getColumnIndexOrThrow("pickup")),
+            dropoff = c.getString(c.getColumnIndexOrThrow("dropoff")),
+            cabType = c.getString(c.getColumnIndexOrThrow("cab_type")),
+            driverName = c.getString(c.getColumnIndexOrThrow("driver_name")),
+            vehicleNumber = c.getString(c.getColumnIndexOrThrow("vehicle_number")),
+            fare = c.getDouble(c.getColumnIndexOrThrow("fare")),
+            distanceKm = c.getDouble(c.getColumnIndexOrThrow("distance_km")),
+            otp = c.getString(c.getColumnIndexOrThrow("otp")),
+            status = c.getString(c.getColumnIndexOrThrow("status")),
+            createdAt = c.getLong(c.getColumnIndexOrThrow("created_at"))
+        )
+    }
+}
