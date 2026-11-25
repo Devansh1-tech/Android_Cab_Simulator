@@ -4,8 +4,16 @@
         "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\activity_booking.xml"
     },
     {
+        "merged": "com.pickop.app-debug-33:/layout_bottom_sheet_receipt.xml.flat",
+        "source": "com.pickop.app-main-35:/layout/bottom_sheet_receipt.xml"
+    },
+    {
         "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-debug-33:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.pickop.app-debug-33:/layout_activity_history.xml.flat",
+        "source": "com.pickop.app-main-35:/layout/activity_history.xml"
     },
     {
         "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-debug-33:\\layout_activity_cab_list.xml.flat",
@@ -20,16 +28,16 @@
         "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\item_cab.xml"
     },
     {
+        "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-debug-33:\\drawable_ic_car_top_view.xml.flat",
+        "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\drawable\\ic_car_top_view.xml"
+    },
+    {
         "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-debug-33:\\layout_activity_history.xml.flat",
         "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\layout\\activity_history.xml"
     },
     {
         "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-debug-33:\\drawable_rounded_border.xml.flat",
         "source": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-main-35:\\drawable\\rounded_border.xml"
-    },
-    {
-        "merged": "com.pickop.app-debug-33:/drawable_ic_car_top_view.xml.flat",
-        "source": "com.pickop.app-main-35:/drawable/ic_car_top_view.xml"
     },
     {
         "merged": "C:\\Users\\gupta\\.gradle\\daemon\\9.6.0\\com.pickop.app-debug-33:\\layout_activity_ride.xml.flat",

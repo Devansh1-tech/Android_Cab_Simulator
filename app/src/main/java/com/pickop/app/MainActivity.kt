@@ -44,6 +44,8 @@ class MainActivity : AppCompatActivity() {
         // Show some dummy nearby cabs around the default location (India)
         MapHelper.showNearbyCabs(b.mapView, 20.5937, 78.9629)
 
+        handlePrefillIntent(intent)
+
         b.btnMyLocation.setOnClickListener {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 checkGpsAndEnableLocation()
@@ -73,6 +75,23 @@ class MainActivity : AppCompatActivity() {
 
         b.btnHistory.setOnClickListener {
             startActivity(Intent(this, HistoryActivity::class.java))
+        }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        handlePrefillIntent(intent)
+    }
+
+    private fun handlePrefillIntent(intent: Intent?) {
+        val pickup = intent?.getStringExtra("prefill_pickup")
+        val dropoff = intent?.getStringExtra("prefill_dropoff")
+        
+        if (!pickup.isNullOrEmpty()) {
+            b.etPickup.setText(pickup)
+        }
+        if (!dropoff.isNullOrEmpty()) {
+            b.etDropoff.setText(dropoff)
         }
     }
 

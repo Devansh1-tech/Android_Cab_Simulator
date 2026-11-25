@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +14,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.pickop.app.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -26,6 +30,24 @@ public final class ActivityHistoryBinding implements ViewBinding {
   public final ImageButton btnBack;
 
   @NonNull
+  public final MaterialButton btnBookFirstRide;
+
+  @NonNull
+  public final Chip chipAll;
+
+  @NonNull
+  public final Chip chipCancelled;
+
+  @NonNull
+  public final Chip chipCompleted;
+
+  @NonNull
+  public final ChipGroup chipGroupFilters;
+
+  @NonNull
+  public final LinearLayout layoutEmpty;
+
+  @NonNull
   public final RecyclerView rvHistory;
 
   @NonNull
@@ -35,9 +57,18 @@ public final class ActivityHistoryBinding implements ViewBinding {
   public final TextView tvEmpty;
 
   private ActivityHistoryBinding(@NonNull CoordinatorLayout rootView, @NonNull ImageButton btnBack,
-      @NonNull RecyclerView rvHistory, @NonNull Toolbar toolbar, @NonNull TextView tvEmpty) {
+      @NonNull MaterialButton btnBookFirstRide, @NonNull Chip chipAll, @NonNull Chip chipCancelled,
+      @NonNull Chip chipCompleted, @NonNull ChipGroup chipGroupFilters,
+      @NonNull LinearLayout layoutEmpty, @NonNull RecyclerView rvHistory, @NonNull Toolbar toolbar,
+      @NonNull TextView tvEmpty) {
     this.rootView = rootView;
     this.btnBack = btnBack;
+    this.btnBookFirstRide = btnBookFirstRide;
+    this.chipAll = chipAll;
+    this.chipCancelled = chipCancelled;
+    this.chipCompleted = chipCompleted;
+    this.chipGroupFilters = chipGroupFilters;
+    this.layoutEmpty = layoutEmpty;
     this.rvHistory = rvHistory;
     this.toolbar = toolbar;
     this.tvEmpty = tvEmpty;
@@ -76,6 +107,42 @@ public final class ActivityHistoryBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnBookFirstRide;
+      MaterialButton btnBookFirstRide = ViewBindings.findChildViewById(rootView, id);
+      if (btnBookFirstRide == null) {
+        break missingId;
+      }
+
+      id = R.id.chipAll;
+      Chip chipAll = ViewBindings.findChildViewById(rootView, id);
+      if (chipAll == null) {
+        break missingId;
+      }
+
+      id = R.id.chipCancelled;
+      Chip chipCancelled = ViewBindings.findChildViewById(rootView, id);
+      if (chipCancelled == null) {
+        break missingId;
+      }
+
+      id = R.id.chipCompleted;
+      Chip chipCompleted = ViewBindings.findChildViewById(rootView, id);
+      if (chipCompleted == null) {
+        break missingId;
+      }
+
+      id = R.id.chipGroupFilters;
+      ChipGroup chipGroupFilters = ViewBindings.findChildViewById(rootView, id);
+      if (chipGroupFilters == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutEmpty;
+      LinearLayout layoutEmpty = ViewBindings.findChildViewById(rootView, id);
+      if (layoutEmpty == null) {
+        break missingId;
+      }
+
       id = R.id.rvHistory;
       RecyclerView rvHistory = ViewBindings.findChildViewById(rootView, id);
       if (rvHistory == null) {
@@ -94,7 +161,8 @@ public final class ActivityHistoryBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityHistoryBinding((CoordinatorLayout) rootView, btnBack, rvHistory, toolbar,
+      return new ActivityHistoryBinding((CoordinatorLayout) rootView, btnBack, btnBookFirstRide,
+          chipAll, chipCancelled, chipCompleted, chipGroupFilters, layoutEmpty, rvHistory, toolbar,
           tvEmpty);
     }
     String missingId = rootView.getResources().getResourceName(id);

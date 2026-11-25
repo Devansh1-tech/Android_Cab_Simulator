@@ -14,5 +14,14 @@ data class Booking(
     val distanceKm: Double,
     val otp: String,
     val status: String,         // BOOKED, IN_PROGRESS, COMPLETED, CANCELLED, EXPIRED
-    val createdAt: Long = System.currentTimeMillis()
+    val createdAt: Long = System.currentTimeMillis(),
+    val pickupLat: Double = 0.0,
+    val pickupLon: Double = 0.0,
+    val dropLat: Double = 0.0,
+    val dropLon: Double = 0.0,
+    val durationMins: Int = 0,
+    val baseFare: Double = 0.0,
+    val surgeMultiplier: Double = 1.0,
+    val paymentMode: String = "CASH",
+    val driverRating: Int = 0
 )

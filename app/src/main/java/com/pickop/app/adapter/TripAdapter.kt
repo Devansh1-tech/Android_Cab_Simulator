@@ -11,7 +11,8 @@ import java.util.Date
 import java.util.Locale
 
 class TripAdapter(
-    private val trips: List<Booking>
+    private val trips: List<Booking>,
+    private val onTripClicked: (Booking) -> Unit
 ) : RecyclerView.Adapter<TripAdapter.VH>() {
 
     private val dateFormat = SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.getDefault())
@@ -41,6 +42,10 @@ class TripAdapter(
                 else         -> Color.parseColor("#757575")
             }
         )
+        
+        holder.itemView.setOnClickListener {
+            onTripClicked(trip)
+        }
     }
 
     override fun getItemCount() = trips.size
